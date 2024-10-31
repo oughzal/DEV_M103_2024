@@ -1,0 +1,5 @@
+L1 = [1,2,3]
+L2 = L1
+L2.append(4)
+print(f"L1 ={L1}")
+print(f"L2 ={L2}")
