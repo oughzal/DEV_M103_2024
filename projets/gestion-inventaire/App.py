@@ -17,11 +17,11 @@ class App:
             "Quiter"
         ]
         while True:
-            system("cls")
             index = showMenu(menu)
+            system("cls")
             match index:
                 case 0 : 
-                    self.magasin.afficherProduits()
+                    self.afficherProduits()
                     system("pause")
                 case 1 : self.ajouterProduit()
                 case 2 : pass
@@ -30,11 +30,22 @@ class App:
                 case 5 : break
 
     def ajouterProduit(self):
+        system("cls")
         nom = input("nom du produit : ")
         qt = int(input("Quatité du produit : "))
         prix = float(input("prix du produit : "))
         p = Produit(nom,qt,prix)
         self.magasin.ajouterProduit(p)
+
+    def afficherProduits(self):
+        menu = list(self.magasin.produits.values()) + ["retour"]
+        l = len(menu)
+        while True:
+            index = showMenu(menu)
+            if index-1 == l : index = -1
+            print(index)
+            match index:
+                case -1 : return
 
 app = App()
 app.mainMenu()

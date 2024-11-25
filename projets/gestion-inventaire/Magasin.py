@@ -10,11 +10,10 @@ class Magasin:
         m.produits[produit.id] = produit
     
     def afficherProduits(m):
-        print("*******************************")
-        print("*****    List Produit   *******")
-        print("*******************************")
-        for p in m.produits.values():
-            print(p)
+        print("List Produit")
+        print("-----------------------------")
+        for i,p in m.produits.items():
+            print(f"- {i} : {p}")
 
     def enregisterEntree(m,id,Qt):
         if  Qt < 0 : return
